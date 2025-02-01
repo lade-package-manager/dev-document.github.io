@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>welcome - lade develop book</title>
+        <title>upgrade - lade develop book</title>
 
 
         <!-- Custom HTML head -->
@@ -152,17 +152,56 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="lade-developer-book"><a class="header" href="#lade-developer-book">Lade Developer book</a></h1>
-<p>Lade Developer bookへようこそ！<br>
-この本では、ladeの仕様やコードなどを解説していきます<br>
-また、ladeに今後追加する予定の機能なども掲載します<br></p>
+                        <h1 id="upgrade"><a class="header" href="#upgrade">upgrade</a></h1>
+<p><code>upgrade</code> コマンドは、Lade 自体を最新バージョンに保つために使用します。</p>
+<p><code>upgrade</code> を実行すると、まず Lade はパッケージリストを最新の状態に更新します。これにより、Lade がアップグレードされた後、新しいバージョンに対応したパッケージリストを使用できるようになります。</p>
+<p>次に、Lade は <a href="https://github.com/lade-package-manager/lade/releases/download/upgrade_info/upgrade_info.json">upgrade_info.json</a> をダウンロードします。この JSON ファイルには、Lade の最新バージョンに関する情報が含まれています。</p>
+<p>もし現在の Lade のバージョンと最新バージョンが異なる場合、Lade は <code>self-upgrade</code> を実行します。</p>
+<h2 id="self-upgrade"><a class="header" href="#self-upgrade">self-upgrade</a></h2>
+<p><code>self-upgrade</code> は、Lade が自分自身をアップグレードする処理です。以下の手順で行います：</p>
+<ol>
+<li>Lade はまず <a href="https://github.com/lade-package-manager/lade">自分自身</a> をクローンします。</li>
+<li>クローンが完了すると、Lade は自分をビルドするために必要なツールを探します。</li>
+</ol>
+<p>必要なツールは以下の通りです：</p>
+<ul>
+<li>
+<p><strong>sh</strong></p>
+<ul>
+<li>Lade は内部でシェル (<code>sh</code>) を呼び出してインストールスクリプトを処理します。将来的に不要になる予定ですが、現在は依存しています。</li>
+</ul>
+</li>
+<li>
+<p><strong>cargo</strong></p>
+<ul>
+<li>Lade は Rust で書かれているため、ビルドに必要なツールです。</li>
+</ul>
+</li>
+<li>
+<p><strong>rustc</strong></p>
+<ul>
+<li>Rust コンパイラもビルドに必須です。</li>
+</ul>
+</li>
+<li>
+<p><strong>pkg-config + openssl 開発環境（Linux のみ）</strong></p>
+<ul>
+<li>Lade は Git リポジトリをクローンするために <code>git2</code> クレートを使用します。Linux 環境では <code>openssl</code> 開発環境と <code>pkg-config</code> が必要です。</li>
+</ul>
+</li>
+</ul>
+<p>これらのツールが全てインストールされていると、Lade はビルドを開始します。エラーがなければ、ビルド後に <code>target/release/lade</code> を <code>lade/bin/</code> に移動し、古いバージョンの Lade を新しいバージョンで置き換えます。</p>
+<p><code>self-upgrade</code> が成功すると、Lade は終了します。</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="update_feat.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
 
-                            <a rel="next prefetch" href="lade_cmd_features.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="install_feat.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -172,14 +211,33 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="update_feat.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
 
-                    <a rel="next prefetch" href="lade_cmd_features.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="install_feat.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
 

@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>remove - lade develop book</title>
+        <title>autoclean - lade develop book</title>
 
 
         <!-- Custom HTML head -->
@@ -152,35 +152,29 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="remove"><a class="header" href="#remove">remove</a></h1>
-<p><code>remove</code> コマンドは、指定されたパッケージを削除（アンインストール）するためのコマンドです。</p>
-<h3 id="動作の流れ"><a class="header" href="#動作の流れ">動作の流れ</a></h3>
-<ol>
-<li><code>remove</code> を実行すると、Lade は対象のパッケージの情報を表示し、削除するか確認を求めます。</li>
-<li>ユーザーが <code>y</code> または <code>yes</code> を入力すると、アンインストールを実行します。</li>
-<li>実行ファイルを削除し、<code>installed/installed.json</code> からパッケージ情報を削除します。</li>
-</ol>
-<h3 id="出力例"><a class="header" href="#出力例">出力例</a></h3>
-<p>削除前に、対象のパッケージの詳細が表示されます：</p>
-<pre><code>&gt;&gt;&gt; Package details:
-  - Name: hello_lade
-  - Version: 1.0.0
-  - Description: Test package for lade
-
-&gt;&gt;&gt; Are you sure you want to remove this package?
-[y/N] y
-</code></pre>
-<p><code>y</code> または <code>yes</code> を入力すると、Lade はパッケージを削除し、インストール記録からも削除します。</p>
+                        <h1 id="autoclean-unimplemented"><a class="header" href="#autoclean-unimplemented">autoclean (unimplemented)</a></h1>
+<p><code>autoclean</code> コマンドは、不要になった依存パッケージを自動で削除する機能として実装予定です。</p>
+<h3 id="背景"><a class="header" href="#背景">背景</a></h3>
+<p>Lade はパッケージをインストールする際に依存関係を解決しますが、<code>remove</code> コマンドでパッケージを削除しても、その依存関係までは削除しません。<br />
+そのため、不要になったパッケージがシステムに残り続ける可能性があります。</p>
+<h3 id="実装予定の機能"><a class="header" href="#実装予定の機能">実装予定の機能</a></h3>
+<ul>
+<li><code>autoclean</code> は、不要になった依存パッケージを自動的に検出し、削除する機能を持ちます。</li>
+<li><code>apt</code> の <code>autoremove</code> に似た動作を想定しています。</li>
+</ul>
+<h3 id="現状"><a class="header" href="#現状">現状</a></h3>
+<p>Lade には <code>autoclean</code> 以外にも実装予定の機能が多く、まだ開発には着手できていません。<br />
+今後のアップデートで追加される予定です。</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="install_feat.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="unimplemented_features.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="clean_feat.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="extra.zip_unimplemented.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -190,17 +184,33 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="install_feat.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="unimplemented_features.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="clean_feat.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="extra.zip_unimplemented.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
 

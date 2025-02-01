@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>list - lade develop book</title>
+        <title>Unimplemented features - lade develop book</title>
 
 
         <!-- Custom HTML head -->
@@ -152,27 +152,19 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="list"><a class="header" href="#list">list</a></h1>
-<p><code>list</code> コマンドは、Lade に登録されているパッケージの一覧を表示します。</p>
-<p>Lade は、<a href="./update_feat.html"><code>update</code></a> で説明したように、<code>main.zip</code> などのパッケージリストを管理しています。<br />
-<code>list</code> コマンドは、それらのパッケージリストからすべてのパッケージを取得し、一覧として表示します。</p>
-<p><strong>出力例：</strong></p>
-<pre><code class="language-sh">hello_lade (v1.0.0)
-lamuta (v0.4.3)
-rumya (v0.1.0)
-</code></pre>
-<p>現在の <code>list</code> コマンドは、<code>main.zip</code> などの内容をメモリ上で確認し、パッケージディレクトリのinfo.tomlを読み込み、フォーマットして表示する仕組みです。<br />
-今後、より詳細な情報を表示する機能が追加されるかもしれません。</p>
+                        <h1 id="unimplemented-features"><a class="header" href="#unimplemented-features">Unimplemented features</a></h1>
+<p>Ladeには実装される予定の機能が数個あります。</p>
+<p>それらを紹介していきましょう</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="clean_feat.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="check_feat.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="search_feat.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="autoclean_unimplemented.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -182,17 +174,33 @@ rumya (v0.1.0)
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="clean_feat.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="check_feat.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="search_feat.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="autoclean_unimplemented.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
 

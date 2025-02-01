@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>check - lade develop book</title>
+        <title>welcome - lade develop book</title>
 
 
         <!-- Custom HTML head -->
@@ -152,34 +152,17 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="check"><a class="header" href="#check">check</a></h1>
-<p><code>check</code> コマンドは、インストール済みのパッケージにアップデートがあるか確認するためのコマンドです。</p>
-<h2 id="動作の流れ"><a class="header" href="#動作の流れ">動作の流れ</a></h2>
-<ol>
-<li><code>check</code> を実行すると、Lade はインストール済みのパッケージを確認します。</li>
-<li>インストール済みのパッケージは <code>installed/installed.json</code> に記録されています。</li>
-<li>各パッケージのバージョンを、最新のパッケージリスト（<code>main.zip</code> など）と比較します。</li>
-<li>アップデートが必要なパッケージがある場合、その情報を表示します。</li>
-</ol>
-<h2 id="出力例"><a class="header" href="#出力例">出力例</a></h2>
-<h3 id="アップデートがある場合"><a class="header" href="#アップデートがある場合">アップデートがある場合：</a></h3>
-<pre><code>&gt;&gt;&gt; Updates are available for package hello_lade (0.9.0 -&gt; 1.0.0)
-</code></pre>
-<p>この場合、<code>hello_lade</code> は現在 <code>0.9.0</code> ですが、最新バージョン <code>1.0.0</code> が利用可能であることを示しています。</p>
-<h3 id="すべて最新の場合"><a class="header" href="#すべて最新の場合">すべて最新の場合：</a></h3>
-<pre><code>&gt;&gt;&gt; All packages are already up to date
-</code></pre>
-<p>この場合、すべてのパッケージが最新の状態であることを意味します。</p>
+                        <h1 id="lade-developer-book"><a class="header" href="#lade-developer-book">Lade Developer book</a></h1>
+<p>Lade Developer bookへようこそ！<br>
+この本では、ladeの仕様やコードなどを解説していきます<br>
+また、ladeに今後追加する予定の機能なども掲載します<br></p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="search_feat.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
-                            </a>
 
-                            <a rel="next prefetch" href="unimplemented_features.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="lade_cmd_features.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -189,17 +172,30 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="search_feat.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
-                    </a>
 
-                    <a rel="next prefetch" href="unimplemented_features.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="lade_cmd_features.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
 

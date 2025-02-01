@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>extra.zip - lade develop book</title>
+        <title>update - lade develop book</title>
 
 
         <!-- Custom HTML head -->
@@ -152,27 +152,42 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="extrazip-unimplemented"><a class="header" href="#extrazip-unimplemented">extra.zip (unimplemented)</a></h1>
-<p><code>extra.zip</code> は、Lade オリジナルのパッケージではないソフトウェア（例：vim、curl など）を格納する予定のパッケージリストです。</p>
-<h3 id="現状"><a class="header" href="#現状">現状</a></h3>
+                        <h1 id="update"><a class="header" href="#update">update</a></h1>
+<p><code>update</code> コマンドは、Lade のパッケージリストを最新の状態に更新します。</p>
+<p>Lade には、2種類のパッケージリストがあります：</p>
+<ol>
+<li>
+<p><strong>main.zip</strong></p>
 <ul>
-<li><code>extra.zip</code> の導入により、Lade を通じて一般的なパッケージも管理できるようにすることを想定しています。</li>
-<li>Lade のソースコードには <code>lade_package_list_extra_path()</code> が実装されており、基盤は整っています。</li>
-<li>しかし、現在は Lade 本体の開発を優先しており、<code>extra.zip</code> の実装には手が回っていません。</li>
+<li>Lade オリジナルのパッケージを管理するリストです。</li>
 </ul>
-<h3 id="今後の予定"><a class="header" href="#今後の予定">今後の予定</a></h3>
+</li>
+<li>
+<p><strong>extra.zip</strong></p>
 <ul>
-<li><code>extra.zip</code> は将来的に実装予定ですが、開発の進行状況によっては変更や中止の可能性もあります。</li>
+<li>Vim や Curl など、さまざまな一般的なパッケージを管理するリストです（現在は未実装ですが、今後追加予定です）。</li>
 </ul>
+</li>
+</ol>
+<p><code>update</code> コマンドは、これらのリストをダウンロードし、<code>lade/packagelists/lade/</code> フォルダに格納します。</p>
+<p><strong>特徴</strong>：</p>
+<ul>
+<li><code>main.zip</code> は頻繁に更新されます。</li>
+<li><code>extra.zip</code> はあまり更新されません（今後の実装予定）。</li>
+</ul>
+<p>現在、Lade はパッケージリストが更新されていなくても <code>update</code> を実行しますが、将来的にはこの挙動が改善される予定です。ですが、Lade はまだ開発段階なので、その実装はもう少し先になります。</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="autoclean_unimplemented.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="lade_cmd_features.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
+                            <a rel="next prefetch" href="upgrade_feat.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -180,14 +195,33 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="autoclean_unimplemented.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="lade_cmd_features.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
+                    <a rel="next prefetch" href="upgrade_feat.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
             </nav>
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
 

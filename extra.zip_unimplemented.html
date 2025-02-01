@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>lade features - lade develop book</title>
+        <title>extra.zip - lade develop book</title>
 
 
         <!-- Custom HTML head -->
@@ -152,32 +152,27 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="lade-features"><a class="header" href="#lade-features">lade features</a></h1>
-<p>ladeにはいくつかのコマンドがあります<br></p>
+                        <h1 id="extrazip-unimplemented"><a class="header" href="#extrazip-unimplemented">extra.zip (unimplemented)</a></h1>
+<p><code>extra.zip</code> は、Lade オリジナルのパッケージではないソフトウェア（例：vim、curl など）を格納する予定のパッケージリストです。</p>
+<h3 id="現状"><a class="header" href="#現状">現状</a></h3>
 <ul>
-<li>update</li>
-<li>upgrade</li>
-<li>install</li>
-<li>clean</li>
-<li>list</li>
-<li>search</li>
-<li>check</li>
-<li>autoclean(未実装)</li>
+<li><code>extra.zip</code> の導入により、Lade を通じて一般的なパッケージも管理できるようにすることを想定しています。</li>
+<li>Lade のソースコードには <code>lade_package_list_extra_path()</code> が実装されており、基盤は整っています。</li>
+<li>しかし、現在は Lade 本体の開発を優先しており、<code>extra.zip</code> の実装には手が回っていません。</li>
 </ul>
-<p>この章では、これらの動作を解説していきます<br>
-まず最初に、updateの仕組みです</p>
+<h3 id="今後の予定"><a class="header" href="#今後の予定">今後の予定</a></h3>
+<ul>
+<li><code>extra.zip</code> は将来的に実装予定ですが、開発の進行状況によっては変更や中止の可能性もあります。</li>
+</ul>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="welcome.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="autoclean_unimplemented.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="update_feat.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -185,17 +180,30 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="welcome.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="autoclean_unimplemented.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="update_feat.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
             </nav>
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
 
